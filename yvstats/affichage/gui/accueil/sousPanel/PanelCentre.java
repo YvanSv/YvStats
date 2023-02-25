@@ -1,7 +1,6 @@
 package yvstats.affichage.gui.accueil.sousPanel;
 
 import javax.swing.BoxLayout;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import java.awt.Color;
@@ -13,7 +12,6 @@ import java.awt.RenderingHints;
 import yvstats.Controleur;
 
 public class PanelCentre extends JPanel {
-
     public PanelCentre(Controleur ctrl) {
         this.setBackground(new Color(10,10,10));
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));

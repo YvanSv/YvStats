@@ -5,7 +5,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.*;
 
@@ -15,12 +14,10 @@ public class PanelHaut extends JPanel implements ActionListener,MouseListener {
     private JButton btnArtistes;
     private JButton btnAlbums;
     private JButton btnMusiques;
-    // private JLabel lblInvisible;
 
     public PanelHaut() {
         this.setBackground(new Color(5,5,5));
         this.setLayout(new GridLayout(3,3,150,0));
-        // this.lblInvisible = new JLabel("invisible");
         this.btnArtistes = new JButton("Artistes");
         this.btnAlbums = new JButton("Albums");
         this.btnMusiques = new JButton("Musiques");
@@ -73,9 +70,5 @@ public class PanelHaut extends JPanel implements ActionListener,MouseListener {
             this.btnAlbums.setForeground(Color.WHITE);
         if (e.getSource() == this.btnMusiques)
             this.btnMusiques.setForeground(Color.WHITE);
-    }
-
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
     }
 }
