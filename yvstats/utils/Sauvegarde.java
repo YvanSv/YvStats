@@ -38,7 +38,7 @@ public class Sauvegarde {
             System.out.println("Loading "+s+" datas... ");
             Scanner sc = new Scanner(new File("../ressources/"+s+".data"));
             while (sc.hasNextLine()) {
-                String[] ts = sc.nextLine().split(" %}`/!§ ");
+                String[] ts = sc.nextLine().split(" ##### ");
                 Objet a = null;
                 switch (s) {
                     case "artistes" : a = new Artiste(ts[1], Identifiant.creerIdentifiant(ts[0])); break;
@@ -64,7 +64,7 @@ public class Sauvegarde {
         try {
             String s = "";
             for (Map.Entry<Integer, Integer> entry : hm.entrySet())
-                s += entry.getKey() + " %}`/!§ " + entry.getValue() + "\n";
+                s += entry.getKey() + " ##### " + entry.getValue() + "\n";
 
             PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(link)));
             pw.println(s);
@@ -80,7 +80,7 @@ public class Sauvegarde {
             if (!f.exists()) f.createNewFile();
             Scanner sc = new Scanner(f);
             while (sc.hasNextLine()) {
-                String[] ts = sc.nextLine().split(" %}`/!§ ");
+                String[] ts = sc.nextLine().split(" ##### ");
                 if (ts.length > 1) hm.put(Integer.parseInt(ts[0]), Integer.parseInt(ts[1]));
             }
             System.out.println("done");

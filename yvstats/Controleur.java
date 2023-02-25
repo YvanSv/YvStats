@@ -56,7 +56,13 @@ public class Controleur {
         return this.metier.getMusiques();
     }
 
-    public Objet[] getMeilleurs() {
-        return this.metier.getMeilleurs();
+    public Artiste getMeilleurArtiste() {
+        return this.metier.getMeilleurArtiste();
+    }
+    public Album getMeilleurAlbum() {
+        return this.metier.getMeilleurAlbum();
+    }
+    public Musique getMeilleurMusique() {
+        return this.metier.getMeilleurMusique();
     }
 }

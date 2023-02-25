@@ -61,25 +61,25 @@ public class Metier {
         return this.musiques;
     }
 
-    public Objet[] getMeilleurs() {
-        Objet[] meilleurs = new Objet[3];
-
+    public Artiste getMeilleurArtiste() {
         for (Artiste a : this.artistes)
-            if (a.getClassementLe(Date.getToday().toInt()) == 1) {
-                meilleurs[0] = a;
-                break;
-            }
-        for (Album a : this.albums)
-            if (a.getClassementLe(Date.getToday().toInt()) == 1) {
-                meilleurs[1] = a;
-                break;
-            }
-        for (Musique a : this.musiques)
-            if (a.getClassementLe(Date.getToday().toInt()) == 1) {
-                meilleurs[2] = a;
-                break;
-            }
+            if (a.getClassementLe(Date.getToday().toInt()) == 1)
+                return a;
 
-        return meilleurs;
+        return null;
+    }
+
+    public Album getMeilleurAlbum() {
+        for (Album a : this.albums)
+            if (a.getClassementLe(Date.getToday().toInt()) == 1)
+                return a;
+        return null;
+    }
+
+    public Musique getMeilleurMusique() {
+        for (Musique a : this.musiques)
+            if (a.getClassementLe(Date.getToday().toInt()) == 1)
+                return a;
+        return null;
     }
 }

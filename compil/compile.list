@@ -16,7 +16,12 @@
 ../yvstats/affichage/gui/accueil/PanelDroit.java
 ../yvstats/affichage/gui/accueil/sousPanel/PanelCentre.java
 ../yvstats/affichage/gui/accueil/sousPanel/PanelHaut.java
-../yvstats/affichage/gui/accueil/sousPanel/PanelMeilleur.java
+../yvstats/affichage/gui/accueil/sousPanel/PanelLigneVide.java
+../yvstats/affichage/gui/accueil/sousPanel/PanelLigneMeilleur.java
+../yvstats/affichage/gui/accueil/sousPanel/PanelLigneTitre.java
+../yvstats/affichage/gui/accueil/sousPanel/PanelMeilleurArtiste.java
+../yvstats/affichage/gui/accueil/sousPanel/PanelMeilleurAlbum.java
+../yvstats/affichage/gui/accueil/sousPanel/PanelMeilleurMusique.java
 ../yvstats/utils/Lecteur.java
 ../yvstats/utils/Sauvegarde.java
 ../yvstats/utils/Identifiant.java
