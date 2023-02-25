@@ -1,0 +1,27 @@
+-encoding utf-8 -d ./ -Xlint:unchecked
+
+../Launcher.java
+../yvstats/Controleur.java
+../yvstats/metier/Album.java
+../yvstats/metier/Artiste.java
+../yvstats/metier/Metier.java
+../yvstats/metier/Musique.java
+../yvstats/metier/Objet.java
+../yvstats/affichage/Affichage.java
+../yvstats/affichage/TUI.java
+../yvstats/affichage/GUI.java
+../yvstats/affichage/gui/Frame.java
+../yvstats/affichage/gui/accueil/PanelAccueil.java
+../yvstats/affichage/gui/accueil/PanelGauche.java
+../yvstats/affichage/gui/accueil/PanelDroit.java
+../yvstats/affichage/gui/accueil/sousPanel/PanelCentre.java
+../yvstats/affichage/gui/accueil/sousPanel/PanelHaut.java
+../yvstats/affichage/gui/accueil/sousPanel/PanelMeilleur.java
+../yvstats/utils/Lecteur.java
+../yvstats/utils/Sauvegarde.java
+../yvstats/utils/Identifiant.java
+../yvstats/utils/Tests.java
+../yvstats/utils/MesMaths.java
+../yvstats/utils/Polices.java
+../yvstats/utils/Date.java
+../yvstats/utils/exception/DateFormatException.java
