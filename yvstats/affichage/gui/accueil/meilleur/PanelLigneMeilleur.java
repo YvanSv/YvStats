@@ -1,11 +1,11 @@
-package yvstats.affichage.gui.accueil.sousPanel;
+package yvstats.affichage.gui.accueil.meilleur;
 
-import javax.swing.JLabel;
+import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import yvstats.Controleur;
+import yvstats.utils.PanelVide;
 
-import java.awt.GridLayout;
 
 public class PanelLigneMeilleur extends JPanel {
     private Controleur ctrl;
@@ -13,12 +13,14 @@ public class PanelLigneMeilleur extends JPanel {
     public PanelLigneMeilleur(Controleur ctrl) {
         this.ctrl = ctrl;
         this.setOpaque(false);
-        this.setLayout(new GridLayout(0,5,180,0));
+        this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
 
-        this.add(new JLabel());
+        this.add(new PanelVide(300, 1));
         this.add(new PanelMeilleurArtiste(this.ctrl.getMeilleurArtiste()));
+        this.add(new PanelVide(200, 1));
         this.add(new PanelMeilleurAlbum(this.ctrl.getMeilleurAlbum()));
+        this.add(new PanelVide(200, 1));
         this.add(new PanelMeilleurMusique(this.ctrl.getMeilleurMusique()));
-        this.add(new JLabel());
+        this.add(new PanelVide(300, 1));
     }
 }

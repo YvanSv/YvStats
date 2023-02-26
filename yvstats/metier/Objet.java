@@ -67,5 +67,6 @@ public abstract class Objet {
         return s;
     }
 
+    public abstract Artiste getArtiste();
     public abstract String toString();
 }

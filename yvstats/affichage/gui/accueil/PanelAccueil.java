@@ -2,12 +2,13 @@ package yvstats.affichage.gui.accueil;
 
 import javax.swing.JPanel;
 
+import java.awt.Color;
+
 import yvstats.Controleur;
 
 public class PanelAccueil extends JPanel {
-    // private Controleur ctrl;
     public PanelAccueil(Controleur ctrl) {
-        // this.ctrl = ctrl;
+        this.setBackground(new Color(12,12,12));
         this.add(new PanelGauche(ctrl));
         this.add(new PanelDroit(ctrl));
     }
