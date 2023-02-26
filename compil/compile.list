@@ -22,13 +22,15 @@
 ../yvstats/affichage/gui/accueil/meilleur/PanelMeilleurAlbum.java
 ../yvstats/affichage/gui/accueil/meilleur/PanelMeilleurMusique.java
 ../yvstats/affichage/gui/accueil/parametres/PanelParametres.java
+../yvstats/affichage/gui/accueil/parametres/PanelLecture.java
+../yvstats/affichage/gui/accueil/parametres/PanelLogoTexte.java
 ../yvstats/utils/Lecteur.java
 ../yvstats/utils/Sauvegarde.java
 ../yvstats/utils/Identifiant.java
-../yvstats/utils/Tests.java
 ../yvstats/utils/MesMaths.java
 ../yvstats/utils/Polices.java
 ../yvstats/utils/Date.java
+../yvstats/utils/Couleur.java
 ../yvstats/utils/PanelVide.java
 ../yvstats/utils/PanelLabel.java
 ../yvstats/utils/exception/DateFormatException.java

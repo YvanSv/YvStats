@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import yvstats.metier.Artiste;
+import yvstats.utils.Couleur;
 import yvstats.utils.Polices;
 
 public class PanelMeilleurArtiste extends PanelMeilleur {
@@ -29,9 +30,9 @@ public class PanelMeilleurArtiste extends PanelMeilleur {
 
     public void mouseEntered(MouseEvent e) {
         if (e.getSource() == this.lblNom)
-            this.lblNom.setForeground(new Color(30,215,96));
+            this.lblNom.setForeground(Couleur.VERT);
         if (e.getSource() == this.lblNbEcoutes)
-            this.lblNbEcoutes.setForeground(new Color(30,215,96));
+            this.lblNbEcoutes.setForeground(Couleur.VERT);
             
     }
     public void mouseExited(MouseEvent e) {

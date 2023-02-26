@@ -11,6 +11,7 @@ import java.awt.RenderingHints;
 
 import yvstats.Controleur;
 import yvstats.affichage.gui.accueil.meilleur.PanelLigneMeilleur;
+import yvstats.utils.Couleur;
 import yvstats.utils.PanelVide;
 
 public class PanelCentre extends JPanel {
@@ -28,8 +29,8 @@ public class PanelCentre extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         int w = getWidth(), h = getHeight();
-        Color color1 = new Color(16,16,16);
-        Color color2 = new Color(5,5,5);
+        Color color1 = Couleur.NOIR_16;
+        Color color2 = Couleur.NOIR_5;
         GradientPaint gp = new GradientPaint(0, 0, color1, w, h, color2);
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, w, h);

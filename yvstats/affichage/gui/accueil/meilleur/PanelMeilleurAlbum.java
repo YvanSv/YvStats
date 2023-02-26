@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import yvstats.metier.Album;
+import yvstats.utils.Couleur;
 
 public class PanelMeilleurAlbum extends PanelMeilleur {
     public PanelMeilleurAlbum(Album a) {
@@ -16,9 +17,9 @@ public class PanelMeilleurAlbum extends PanelMeilleur {
 
     public void mouseEntered(MouseEvent e) {
         if (e.getSource() == this.lblNom)
-            this.lblNom.setForeground(new Color(30,215,96));
+            this.lblNom.setForeground(Couleur.VERT);
         if (e.getSource() == this.lblNomArtiste)
-            this.lblNomArtiste.setForeground(new Color(30,215,96));
+            this.lblNomArtiste.setForeground(Couleur.VERT);
             
     }
     public void mouseExited(MouseEvent e) {
