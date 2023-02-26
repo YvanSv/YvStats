@@ -51,6 +51,6 @@ public class PanelHaut extends JPanel implements MouseListener {
     public void mouseExited(MouseEvent e) {
         if (e.getSource() == this.pnlArtistes.lbl) this.pnlArtistes.lbl.setForeground(Color.WHITE);
         else if (e.getSource() == this.pnlAlbums.lbl) this.pnlAlbums.lbl.setForeground(Color.WHITE);
-        else if (e.getSource() == this.pnlMusiques.lbl) this.pnlMusiques.lbl.setForeground(Couleur.VERT);
+        else if (e.getSource() == this.pnlMusiques.lbl) this.pnlMusiques.lbl.setForeground(Color.WHITE);
     }
 }

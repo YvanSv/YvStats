@@ -3,6 +3,10 @@ import java.awt.Font;
 import java.io.File;
 
 public class Polices {
+    public static final int T45 = 45;
+    public static final int T30 = 30;
+    public static final int T27 = 27;
+    public static final int T20 = 20;
     public static Font arista_pro_light;
     public static Font arista_pro_fat;
     public static Font arista_pro_bold;

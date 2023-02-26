@@ -27,14 +27,18 @@ import yvstats.affichage.gui.accueil.parametres.PanelLecture;
 import yvstats.affichage.gui.accueil.parametres.PanelParametres;
 import yvstats.affichage.gui.accueil.parametres.PanelLogoTexte;
 import yvstats.utils.Couleur;
+import yvstats.utils.PanelLabel;
 import yvstats.utils.PanelVide;
+import yvstats.utils.Polices;
 
 public class PanelGauche extends JPanel implements ChangeListener,MouseListener {
     private static final int PROG_MIN = 0, PROG_MAX = 1000, PROG_INIT = 0;
     private PanelLogoTexte pnlRetourAccueil;
     private PanelLogoTexte pnlRechercher;
-    private JSlider sldProgressionLecture;
+    private PanelLabel pnlTitreSon;
+    private PanelLabel pnlNomArtiste;
     private JLabel imgLecture;
+    private JSlider sldProgressionLecture;
 
     public PanelGauche(Controleur ctrl) {
         this.setOpaque(false);
@@ -48,6 +52,8 @@ public class PanelGauche extends JPanel implements ChangeListener,MouseListener 
         this.pnlRechercher.lblLogo.addMouseListener(this);
         this.pnlRechercher.lblTexte.addMouseListener(this);
 
+        this.pnlTitreSon = new PanelLabel("Inconnu",Polices.T27);
+        this.pnlNomArtiste = new PanelLabel("Inconnu",Polices.T20);
         this.imgLecture = new JLabel(new ImageIcon(new ImageIcon("../ressources/img/Inconnu.png").getImage().getScaledInstance(330, 330, Image.SCALE_DEFAULT)));
         this.imgLecture.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -59,7 +65,9 @@ public class PanelGauche extends JPanel implements ChangeListener,MouseListener 
         this.add(new PanelVide(348, 1));
         this.add(this.pnlRetourAccueil);
         this.add(this.pnlRechercher);
-        this.add(new PanelVide(1, 400));
+        this.add(new PanelVide(1, 330));
+        this.add(this.pnlTitreSon);
+        this.add(this.pnlNomArtiste);
         this.add(this.imgLecture);
         this.add(new PanelVide(1, 20));
         this.add(this.sldProgressionLecture);
