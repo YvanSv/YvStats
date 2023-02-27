@@ -17,6 +17,7 @@ public class Album  extends Objet {
                 this.musiques.add(m);
                 m.setAlbum(this);
             }
+        this.artiste.ajouterAlbum(this);
     }
 
     public void ajouterMusiques(Musique... ms) {
@@ -35,6 +36,10 @@ public class Album  extends Objet {
 
     public Artiste getArtiste() {
         return this.artiste;
+    }
+
+    public String getLinkToPlay() {
+        return this.musiques.get(0).getLinkToPlay();
     }
 
     public String toString() {

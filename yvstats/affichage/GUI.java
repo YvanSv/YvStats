@@ -50,4 +50,5 @@ public class GUI extends Affichage{
     public Artiste getMeilleurArtiste() { return this.ctrl.getMeilleurArtiste(); }
     public Album getMeilleurAlbum() { return this.ctrl.getMeilleurAlbum(); }
     public Musique getMeilleurMusique() { return this.ctrl.getMeilleurMusique(); }
+    public void play(String s) { this.ctrl.play(s); }
 }

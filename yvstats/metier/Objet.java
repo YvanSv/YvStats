@@ -93,6 +93,8 @@ public abstract class Objet {
         return this.listeEcoutes;
     }
 
+    public abstract String getLinkToPlay();
+
     public abstract Artiste getArtiste();
     public abstract String toString();
 }

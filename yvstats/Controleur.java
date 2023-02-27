@@ -7,6 +7,7 @@ import yvstats.affichage.GUI;
 import yvstats.affichage.TUI;
 import yvstats.metier.Album;
 import yvstats.metier.Artiste;
+import yvstats.metier.Audio;
 import yvstats.metier.Metier;
 import yvstats.metier.Musique;
 import yvstats.metier.Objet;
@@ -15,9 +16,11 @@ import yvstats.utils.Identifiant;
 public class Controleur {
     private Affichage affichage;
     private Metier metier;
+    private Audio audio;
 
     public Controleur() {
         this.metier = new Metier();
+        this.audio = new Audio();
     }
 
     public void lancer(int tuigui) {
@@ -68,5 +71,10 @@ public class Controleur {
     }
     public Musique getMeilleurMusique() {
         return this.metier.getMeilleurMusique();
+    }
+
+    public void play(String s) {
+        this.audio.setLink(s);
+        this.audio.start();
     }
 }

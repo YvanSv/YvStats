@@ -9,6 +9,7 @@ public class Artiste extends Objet {
 
     public Artiste(String nom, Identifiant id) {
         super(nom, id);
+        this.albums = new ArrayList<Album>();
     }
 
     public void ajouterAlbum(Album a) {
@@ -17,6 +18,10 @@ public class Artiste extends Objet {
 
     public void supprimerAlbum(Album a) {
         this.albums.remove(a);
+    }
+
+    public String getLinkToPlay() {
+        return this.albums.get(0).getLinkToPlay();
     }
 
     public String toString() {

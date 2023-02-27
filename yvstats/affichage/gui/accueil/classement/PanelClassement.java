@@ -6,8 +6,6 @@ import javax.swing.BoxLayout;
 import java.util.ArrayList;
 
 import yvstats.affichage.GUI;
-import yvstats.affichage.gui.Frame;
-import yvstats.affichage.gui.accueil.sousPanel.PanelHaut;
 import yvstats.metier.Objet;
 import yvstats.utils.PanelImage;
 
@@ -22,12 +20,10 @@ public class PanelClassement extends JPanel {
 
         for (int i = 0; i < al.size(); i++)
             this.alLabel.add(new PanelLigne(gui,al.get(i),i));
-        int size = PanelHaut.height, max = Frame.height;
 
         for (PanelLigne a : this.alLabel) {
             this.add(a);
             this.add(new PanelImage(1552, 1, PanelImage.CUBE));
-            // size += 73;
         }
     }
 }

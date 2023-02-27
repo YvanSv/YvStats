@@ -31,6 +31,10 @@ public class Musique extends Objet {
         this.artiste.nouvelleEcoute(e);
     }
 
+    public String getLinkToPlay() {
+        return this.id.toString()+"_"+this.nom;
+    }
+
     public String toString() {
         return this.id + " ##### " + this.nom + " ##### " + this.album.getId();
     }
