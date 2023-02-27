@@ -53,7 +53,11 @@ public class PanelGauche extends JPanel implements ChangeListener,MouseListener 
         this.pnlRechercher.lblTexte.addMouseListener(this);
 
         this.pnlTitreSon = new PanelLabel("Inconnu",Polices.T27);
+        this.pnlTitreSon.lbl.addMouseListener(this);
+
         this.pnlNomArtiste = new PanelLabel("Inconnu",Polices.T20);
+        this.pnlNomArtiste.lbl.addMouseListener(this);
+
         this.imgLecture = new JLabel(new ImageIcon(new ImageIcon("../ressources/img/Inconnu.png").getImage().getScaledInstance(330, 330, Image.SCALE_DEFAULT)));
         this.imgLecture.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -90,6 +94,8 @@ public class PanelGauche extends JPanel implements ChangeListener,MouseListener 
             this.pnlRechercher.lblLogo.setForeground(Couleur.VERT);
             this.pnlRechercher.lblTexte.setForeground(Couleur.VERT);
         }
+        else if (e.getSource() == this.pnlTitreSon.lbl) this.pnlTitreSon.lbl.setForeground(Couleur.VERT);
+        else if (e.getSource() == this.pnlNomArtiste.lbl) this.pnlNomArtiste.lbl.setForeground(Couleur.VERT);
     }
     public void mouseExited(MouseEvent e) {
         if (e.getSource() == this.pnlRetourAccueil.lblLogo || e.getSource() == this.pnlRetourAccueil.lblTexte) {
@@ -100,6 +106,8 @@ public class PanelGauche extends JPanel implements ChangeListener,MouseListener 
             this.pnlRechercher.lblLogo.setForeground(Color.WHITE);
             this.pnlRechercher.lblTexte.setForeground(Color.WHITE);
         }
+        else if (e.getSource() == this.pnlTitreSon.lbl) this.pnlTitreSon.lbl.setForeground(Color.WHITE);
+        else if (e.getSource() == this.pnlNomArtiste.lbl) this.pnlNomArtiste.lbl.setForeground(Color.WHITE);
     }
 
     private static class CustomSliderUI extends BasicSliderUI {

@@ -143,13 +143,16 @@ public class TUI extends Affichage {
     private void newAlbum() {
         ArrayList<Album> al = this.ctrl.getAlbums();
         String nomAlbum;
+        String nomArtiste;
         Artiste a;
         String[] nomsMusiques;
         this.afficher("\n\nCréer un nouvel album :\n\n");
         this.afficher("Nom de l'album : ");
         nomAlbum = this.lireString();
         this.afficher("Nom de l'artiste : ");
-        a = this.ctrl.getArtisteByName(this.lireString());
+        nomArtiste = this.lireString();
+        a = this.ctrl.getArtisteByName(nomArtiste);
+        if (a == null) a = new Artiste(nomAlbum, Identifiant.newId());
         this.afficher("[musique1 %% musique2 %% ... %% musiqueN] : ");
         String nm = this.lireString();
         nomsMusiques = nm.split(" %% ");

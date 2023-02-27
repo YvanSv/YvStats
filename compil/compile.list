@@ -7,6 +7,7 @@
 ../yvstats/metier/Metier.java
 ../yvstats/metier/Musique.java
 ../yvstats/metier/Objet.java
+../yvstats/metier/Ecoute.java
 ../yvstats/affichage/Affichage.java
 ../yvstats/affichage/TUI.java
 ../yvstats/affichage/GUI.java

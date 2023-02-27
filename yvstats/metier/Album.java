@@ -38,6 +38,6 @@ public class Album  extends Objet {
     }
 
     public String toString() {
-        return this.id + " %}`/!§ " + this.nom + " %}`/!§ " + this.artiste.getId();
+        return this.id + " ##### " + this.nom + " ##### " + this.artiste.getId();
     }
 }

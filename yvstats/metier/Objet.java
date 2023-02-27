@@ -1,7 +1,9 @@
 package yvstats.metier;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
+import yvstats.utils.Date;
 import yvstats.utils.Identifiant;
 import yvstats.utils.Sauvegarde;
 
@@ -9,11 +11,13 @@ public abstract class Objet {
     protected Identifiant id;
     protected String nom;
     protected HashMap<Integer,Integer> classement;
+    protected ArrayList<Ecoute> listeEcoutes;
 
     public Objet(String nom, Identifiant id) {
         this.nom = nom;
         this.id = id;
         this.classement = new HashMap<Integer,Integer>();
+        this.listeEcoutes = new ArrayList<Ecoute>();
     }
 
     public Identifiant getId() {
@@ -65,6 +69,28 @@ public abstract class Objet {
             s += "\t-" + i + "\n";
 
         return s;
+    }
+
+    public int getNbEcoute() {
+        return this.listeEcoutes.size();
+    }
+
+    public int getNbEcouteApres(Date d) {
+        int nb = 0;
+
+        for (Ecoute e : this.listeEcoutes)
+            if (e.getDate().compareTo(d) > 1)
+                nb++;
+
+        return nb;
+    }
+
+    public void nouvelleEcoute(Ecoute e) {
+        this.listeEcoutes.add(e);
+    }
+
+    public ArrayList<Ecoute> getEcoutes() {
+        return this.listeEcoutes;
     }
 
     public abstract Artiste getArtiste();

@@ -8,6 +8,7 @@ import javax.swing.BoxLayout;
 import java.awt.Component;
 import java.awt.Color;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.awt.event.MouseEvent;
 
 import yvstats.metier.Objet;
@@ -29,7 +30,11 @@ public abstract class PanelMeilleur extends JPanel implements MouseListener{
             nom = a.getNom();
 
         this.lblTitre = new JLabel(type+" préféré");
-        this.img = new JLabel(new ImageIcon("../ressources/img/"+nom+".png"));
+        File f = new File("../ressources/img/"+nom+".png");
+        String link;
+        if (!f.exists()) link = "../ressources/img/Inconnu.png";
+        else link = "../ressources/img/"+nom+".png";
+        this.img = new JLabel(new ImageIcon(link));
         this.lblNom = new JLabel(nom);
         this.lblTitre.setForeground(Color.WHITE);
         this.lblNom.setForeground(Color.WHITE);
@@ -49,7 +54,8 @@ public abstract class PanelMeilleur extends JPanel implements MouseListener{
         if (!type.equals("Artiste")) {
             String nomArtiste = "Inconnu";
             if (a != null)
-                nomArtiste = a.getArtiste().getNom();
+                if (a.getArtiste() != null)
+                    nomArtiste = a.getArtiste().getNom();
             this.lblNomArtiste = new JLabel(nomArtiste);
             this.lblNomArtiste.setForeground(Color.WHITE);
             this.lblNomArtiste.setFont(Polices.arista_pro_light_30);;

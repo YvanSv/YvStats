@@ -1,5 +1,6 @@
 package yvstats.metier;
 
+import yvstats.utils.Date;
 import yvstats.utils.Identifiant;
 
 public class Musique extends Objet {
@@ -23,7 +24,14 @@ public class Musique extends Objet {
         return this.artiste;
     }
 
+    public void nouvelleEcoute(Date d) {
+        Ecoute e = new Ecoute(d);
+        this.listeEcoutes.add(e);
+        this.album.nouvelleEcoute(e);
+        this.artiste.nouvelleEcoute(e);
+    }
+
     public String toString() {
-        return this.id + " %}`/!§ " + this.nom + " %}`/!§ " + this.album.getId();
+        return this.id + " ##### " + this.nom + " ##### " + this.album.getId();
     }
 }

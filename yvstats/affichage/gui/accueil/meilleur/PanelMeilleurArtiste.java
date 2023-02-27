@@ -15,11 +15,11 @@ public class PanelMeilleurArtiste extends PanelMeilleur {
     public PanelMeilleurArtiste(Artiste a) {
         super(a,"Artiste");
 
-        this.lblNbEcoutes = new JLabel(" écoutes");
+        this.lblNbEcoutes = new JLabel(a.getNbEcoute() + " écoutes");
         this.lblNbEcoutes.setForeground(Color.WHITE);
         this.lblNbEcoutes.setFont(Polices.arista_pro_light_30);
         this.lblNbEcoutes.setAlignmentX(Component.CENTER_ALIGNMENT);
-        this.lblNbEcoutes.addMouseListener(this);
+        // this.lblNbEcoutes.addMouseListener(this);
 
         this.add(this.lblNbEcoutes);
     }
@@ -31,14 +31,14 @@ public class PanelMeilleurArtiste extends PanelMeilleur {
     public void mouseEntered(MouseEvent e) {
         if (e.getSource() == this.lblNom)
             this.lblNom.setForeground(Couleur.VERT);
-        if (e.getSource() == this.lblNbEcoutes)
-            this.lblNbEcoutes.setForeground(Couleur.VERT);
+        // if (e.getSource() == this.lblNbEcoutes)
+        //     this.lblNbEcoutes.setForeground(Couleur.VERT);
             
     }
     public void mouseExited(MouseEvent e) {
         if (e.getSource() == this.lblNom)
             this.lblNom.setForeground(Color.WHITE);
-        if (e.getSource() == this.lblNbEcoutes)
-            this.lblNbEcoutes.setForeground(Color.WHITE);
+        // if (e.getSource() == this.lblNbEcoutes)
+        //     this.lblNbEcoutes.setForeground(Color.WHITE);
     }
 }

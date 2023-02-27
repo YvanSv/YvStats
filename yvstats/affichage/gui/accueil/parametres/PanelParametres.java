@@ -53,7 +53,7 @@ public class PanelParametres extends JPanel implements ChangeListener,MouseListe
     }
 
     public void stateChanged(ChangeEvent e) {
-        if (this.sldSon.getValue() < 1) this.lblSon.setText("  🔈");
+        if (this.sldSon.getValue() < 1) this.lblSon.setText("  🔇");
         else if (this.sldSon.getValue() < 51) this.lblSon.setText("  🔉");
         else this.lblSon.setText("  🔊");
         this.muted = false;
@@ -65,7 +65,7 @@ public class PanelParametres extends JPanel implements ChangeListener,MouseListe
                 if (this.sldSon.getValue() < 1) doNothing();
                 else if (this.sldSon.getValue() < 51) this.lblSon.setText("  🔉");
                 else this.lblSon.setText("  🔊");
-            else this.lblSon.setText("  🔈");
+            else this.lblSon.setText("  🔇");
             this.muted = !this.muted;
         }
     }

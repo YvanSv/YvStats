@@ -20,7 +20,7 @@ public class Artiste extends Objet {
     }
 
     public String toString() {
-        return this.id + " %}`/!§ " + this.nom;
+        return this.id + " ##### " + this.nom;
     }
 
     public Artiste getArtiste() {

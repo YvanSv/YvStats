@@ -2,7 +2,6 @@ package yvstats.metier;
 
 import java.util.ArrayList;
 
-import yvstats.utils.Date;
 import yvstats.utils.Identifiant;
 import yvstats.utils.Sauvegarde;
 
@@ -39,6 +38,14 @@ public class Metier {
         return null;
     }
 
+    public Musique getMusiqueById(Identifiant id) {
+        for (Musique a : this.musiques)
+            if (a.getId().equals(id)) {
+                return a;
+            }
+        return null;
+    }
+
     public Artiste getArtisteByName(String nom) {
         for (Artiste a : this.artistes)
             if (a.getNom().equals(nom)) return a;
@@ -62,24 +69,29 @@ public class Metier {
     }
 
     public Artiste getMeilleurArtiste() {
+        Artiste m = null;
         for (Artiste a : this.artistes)
-            if (a.getClassementLe(Date.getToday().toInt()) == 1)
-                return a;
-
-        return null;
+            if (m == null) m = a;
+            else if (a.getNbEcoute() > m.getNbEcoute())
+                m = a;
+    return m;
     }
 
     public Album getMeilleurAlbum() {
+        Album m = null;
         for (Album a : this.albums)
-            if (a.getClassementLe(Date.getToday().toInt()) == 1)
-                return a;
-        return null;
+            if (m == null) m = a;
+            else if (a.getNbEcoute() > m.getNbEcoute())
+                m = a;
+        return m;
     }
 
     public Musique getMeilleurMusique() {
+        Musique m = null;
         for (Musique a : this.musiques)
-            if (a.getClassementLe(Date.getToday().toInt()) == 1)
-                return a;
-        return null;
+            if (m == null) m = a;
+            else if (a.getNbEcoute() > m.getNbEcoute())
+                m = a;
+        return m;
     }
 }
