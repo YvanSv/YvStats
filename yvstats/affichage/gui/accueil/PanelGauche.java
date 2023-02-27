@@ -70,7 +70,7 @@ public class PanelGauche extends JPanel implements ChangeListener,MouseListener 
         this.sldProgressionLecture.addChangeListener(this);
         this.sldProgressionLecture.setOpaque(false);
 
-        this.add(new PanelImage(366, 1, PanelImage.VIDE));
+        this.add(new PanelImage(368, 20, PanelImage.VIDE));
         this.add(this.pnlRetourAccueil);
         this.add(this.pnlRechercher);
         this.add(new PanelImage(1, 330, PanelImage.VIDE));
@@ -83,6 +83,7 @@ public class PanelGauche extends JPanel implements ChangeListener,MouseListener 
         this.add(new PanelLecture());
         this.add(new PanelImage(1, 30, PanelImage.VIDE));
         this.add(new PanelParametres());
+        this.add(new PanelImage(1, 10, PanelImage.VIDE));
     }
 
     public void stateChanged(ChangeEvent e) {}

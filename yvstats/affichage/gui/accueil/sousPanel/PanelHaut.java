@@ -51,6 +51,8 @@ public class PanelHaut extends JPanel implements MouseListener {
 
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.pnlArtistes.lbl) this.gui.setClassementArtiste();
+        else if (e.getSource() == this.pnlAlbums.lbl) this.gui.setClassementAlbums();
+        else if (e.getSource() == this.pnlMusiques.lbl) this.gui.setClassementMusiques();
     }
     public void mousePressed(MouseEvent e) {}
     public void mouseReleased(MouseEvent e) {}

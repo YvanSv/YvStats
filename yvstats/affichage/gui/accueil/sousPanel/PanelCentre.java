@@ -11,6 +11,7 @@ import java.awt.RenderingHints;
 import java.util.ArrayList;
 
 import yvstats.affichage.GUI;
+import yvstats.affichage.gui.Frame;
 import yvstats.affichage.gui.accueil.classement.PanelClassement;
 import yvstats.affichage.gui.accueil.meilleur.PanelLigneMeilleur;
 import yvstats.metier.Objet;
@@ -53,6 +54,17 @@ public class PanelCentre extends JPanel {
         this.add(this.v1);
         this.add(this.pnlActuel);
         this.add(this.v2);
+    }
+
+    public void setTaille() {
+        int diff = Frame.height - ((int)(this.pnlActuel.getSize().getHeight()) + PanelHaut.height + 35);
+        System.out.println(PanelHaut.height + " " + this.pnlActuel.getSize() + " " + diff);
+        if (diff > 1) {
+            this.pnlActuel.add(new PanelImage(1, diff, PanelImage.VIDE));
+            System.out.println("added");
+            this.gui.refresh();
+        }
+        System.out.println(this.pnlActuel.getSize());
     }
 
     @Override

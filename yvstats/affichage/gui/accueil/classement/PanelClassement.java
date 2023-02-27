@@ -20,14 +20,14 @@ public class PanelClassement extends JPanel {
 
         this.alLabel = new ArrayList<PanelLigne>();
 
-        for (Objet o : al)
-            this.alLabel.add(new PanelLigne(gui,o));
-        int size = 0, max = Frame.height - 45 - PanelHaut.height;
+        for (int i = 0; i < al.size(); i++)
+            this.alLabel.add(new PanelLigne(gui,al.get(i),i));
+        int size = PanelHaut.height, max = Frame.height;
+
         for (PanelLigne a : this.alLabel) {
             this.add(a);
-            this.add(new PanelImage(1552, 4, PanelImage.CUBE));
-            size += 20 + 4;
+            this.add(new PanelImage(1552, 1, PanelImage.CUBE));
+            // size += 73;
         }
-        if (size < max) this.add(new PanelImage(1, max - size, PanelImage.VIDE));
     }
 }

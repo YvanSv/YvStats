@@ -24,6 +24,7 @@ public class PanelDroit extends JPanel {
 
     public void setTaille() {
         this.pnlHaut.setTaille();
+        this.pnlCentre.setTaille();
     }
 
     public void setClassement(ArrayList<Objet> al) {

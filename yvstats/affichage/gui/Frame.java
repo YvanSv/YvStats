@@ -20,7 +20,7 @@ public class Frame extends JFrame {
     public Frame(GUI gui) {
         this.setTitle("YvStats");
         this.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
-        this.getContentPane().setBackground(Couleur.NOIR_12);
+        this.getContentPane().setBackground(Couleur.VERT);
         Frame.setDefaultLookAndFeelDecorated(true);
 
         this.add(new PanelGauche(gui));
@@ -44,6 +44,7 @@ public class Frame extends JFrame {
     public void setClassement(ArrayList<Objet> al) {
         this.pnlDroit.setClassement(al);
         this.refresh();
+        this.pnlDroit.setTaille();
     }
 
     public void setAccueil() {

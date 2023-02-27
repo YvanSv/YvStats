@@ -28,6 +28,22 @@ public class GUI extends Affichage{
         this.frm.setClassement(tmp);
     }
 
+    public void setClassementAlbums() {
+        ArrayList<Album> al = this.ctrl.getAlbums();
+        ArrayList<Objet> tmp = new ArrayList<>();
+        for (Object o : al)
+            tmp.add((Objet) o);
+        this.frm.setClassement(tmp);
+    }
+
+    public void setClassementMusiques() {
+        ArrayList<Musique> al = this.ctrl.getMusiques();
+        ArrayList<Objet> tmp = new ArrayList<>();
+        for (Object o : al)
+            tmp.add((Objet) o);
+        this.frm.setClassement(tmp);
+    }
+
     public void setAccueil() { this.frm.setAccueil(); }
     public void refresh() { this.frm.refresh(); }
 
