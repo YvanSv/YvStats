@@ -8,19 +8,48 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.util.ArrayList;
 
-import yvstats.Controleur;
+import yvstats.affichage.GUI;
+import yvstats.affichage.gui.accueil.classement.PanelClassement;
 import yvstats.affichage.gui.accueil.meilleur.PanelLigneMeilleur;
+import yvstats.metier.Objet;
 import yvstats.utils.Couleur;
-import yvstats.utils.PanelVide;
+import yvstats.utils.PanelImage;
 
 public class PanelCentre extends JPanel {
-    public PanelCentre(Controleur ctrl) {
+    private PanelLigneMeilleur pnlMeilleur;
+    private JPanel pnlActuel;
+    private PanelImage v1;
+    private PanelImage v2;
+
+    public PanelCentre(GUI gui) {
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 
-        this.add(new PanelVide(1,230));
-        this.add(new PanelLigneMeilleur(ctrl));
-        this.add(new PanelVide(1,259));
+        this.v1 = new PanelImage(1,230, PanelImage.VIDE);
+        this.v2 = new PanelImage(1,259, PanelImage.VIDE);
+        this.pnlMeilleur = new PanelLigneMeilleur(gui);
+        this.pnlActuel = this.pnlMeilleur;
+
+        this.add(this.v1);
+        this.add(this.pnlActuel);
+        this.add(this.v2);
+    }
+
+    public void setClassement(ArrayList<Objet> al) {
+        this.remove(this.v2);
+        this.remove(this.pnlActuel);
+        this.remove(this.v1);
+        this.pnlActuel = new PanelClassement(al);
+        this.add(this.pnlActuel);
+    }
+
+    public void setAccueil() {
+        this.remove(this.pnlActuel);
+        this.pnlActuel = this.pnlMeilleur;
+        this.add(this.v1);
+        this.add(this.pnlActuel);
+        this.add(this.v2);
     }
 
     @Override

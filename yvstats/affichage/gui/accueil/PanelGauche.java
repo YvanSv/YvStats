@@ -22,17 +22,18 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import yvstats.Controleur;
+import yvstats.affichage.GUI;
 import yvstats.affichage.gui.accueil.parametres.PanelLecture;
 import yvstats.affichage.gui.accueil.parametres.PanelParametres;
 import yvstats.affichage.gui.accueil.parametres.PanelLogoTexte;
 import yvstats.utils.Couleur;
 import yvstats.utils.PanelLabel;
-import yvstats.utils.PanelVide;
+import yvstats.utils.PanelImage;
 import yvstats.utils.Polices;
 
 public class PanelGauche extends JPanel implements ChangeListener,MouseListener {
     private static final int PROG_MIN = 0, PROG_MAX = 1000, PROG_INIT = 0;
+    private GUI gui;
     private PanelLogoTexte pnlRetourAccueil;
     private PanelLogoTexte pnlRechercher;
     private PanelLabel pnlTitreSon;
@@ -40,8 +41,11 @@ public class PanelGauche extends JPanel implements ChangeListener,MouseListener 
     private JLabel imgLecture;
     private JSlider sldProgressionLecture;
 
-    public PanelGauche(Controleur ctrl) {
-        this.setOpaque(false);
+    public PanelGauche(GUI gui) {
+        this.gui = gui;
+
+        this.setOpaque(true);
+        this.setBackground(Couleur.NOIR_12);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         this.pnlRetourAccueil = new PanelLogoTexte("🏡"," Revenir à l'acceuil");
@@ -66,23 +70,25 @@ public class PanelGauche extends JPanel implements ChangeListener,MouseListener 
         this.sldProgressionLecture.addChangeListener(this);
         this.sldProgressionLecture.setOpaque(false);
 
-        this.add(new PanelVide(348, 1));
+        this.add(new PanelImage(366, 1, PanelImage.VIDE));
         this.add(this.pnlRetourAccueil);
         this.add(this.pnlRechercher);
-        this.add(new PanelVide(1, 330));
+        this.add(new PanelImage(1, 330, PanelImage.VIDE));
         this.add(this.pnlTitreSon);
         this.add(this.pnlNomArtiste);
         this.add(this.imgLecture);
-        this.add(new PanelVide(1, 20));
+        this.add(new PanelImage(1, 20, PanelImage.VIDE));
         this.add(this.sldProgressionLecture);
-        this.add(new PanelVide(1, 10));
+        this.add(new PanelImage(1, 10, PanelImage.VIDE));
         this.add(new PanelLecture());
-        this.add(new PanelVide(1, 30));
+        this.add(new PanelImage(1, 30, PanelImage.VIDE));
         this.add(new PanelParametres());
     }
 
     public void stateChanged(ChangeEvent e) {}
-    public void mouseClicked(MouseEvent e) {}
+    public void mouseClicked(MouseEvent e) {
+        if (e.getSource() == this.pnlRetourAccueil.lblLogo || e.getSource() == this.pnlRetourAccueil.lblTexte) this.gui.setAccueil();
+    }
     public void mousePressed(MouseEvent e) {}
     public void mouseReleased(MouseEvent e) {}
     public void mouseEntered(MouseEvent e) {

@@ -10,7 +10,6 @@ import yvstats.metier.Artiste;
 import yvstats.metier.Metier;
 import yvstats.metier.Musique;
 import yvstats.metier.Objet;
-import yvstats.utils.Date;
 import yvstats.utils.Identifiant;
 
 public class Controleur {

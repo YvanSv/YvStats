@@ -1,26 +1,44 @@
 package yvstats.affichage;
 
+import java.util.ArrayList;
+
 import yvstats.Controleur;
 import yvstats.affichage.gui.Frame;
+import yvstats.metier.Album;
+import yvstats.metier.Artiste;
+import yvstats.metier.Musique;
+import yvstats.metier.Objet;
 
 public class GUI extends Affichage{
+    private Frame frm;
     public GUI(Controleur ctrl) {
         super(ctrl);
     }
 
     public void lancer() {
-        new Frame(this.ctrl);
+        this.frm = new Frame(this);
+        this.frm.setTaille();
     }
 
-    public void afficher(String s) {
-        throw new UnsupportedOperationException("Unimplemented method 'afficher'");
+    public void setClassementArtiste() {
+        ArrayList<Artiste> al = this.ctrl.getArtistes();
+        ArrayList<Objet> tmp = new ArrayList<>();
+        for (Object o : al)
+            tmp.add((Objet) o);
+        this.frm.setClassement(tmp);
     }
 
-    public char lireChar() {
-        throw new UnsupportedOperationException("Unimplemented method 'lireChar'");
+    public void setAccueil() {
+        this.frm.setAccueil();
     }
 
-    public String lireString() {
-        throw new UnsupportedOperationException("Unimplemented method 'lireString'");
+    public Artiste getMeilleurArtiste() {
+        return this.ctrl.getMeilleurArtiste();
+    }
+    public Album getMeilleurAlbum() {
+        return this.ctrl.getMeilleurAlbum();
+    }
+    public Musique getMeilleurMusique() {
+        return this.ctrl.getMeilleurMusique();
     }
 }

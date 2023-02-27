@@ -12,7 +12,6 @@
 ../yvstats/affichage/TUI.java
 ../yvstats/affichage/GUI.java
 ../yvstats/affichage/gui/Frame.java
-../yvstats/affichage/gui/accueil/PanelAccueil.java
 ../yvstats/affichage/gui/accueil/PanelGauche.java
 ../yvstats/affichage/gui/accueil/PanelDroit.java
 ../yvstats/affichage/gui/accueil/sousPanel/PanelCentre.java
@@ -25,6 +24,8 @@
 ../yvstats/affichage/gui/accueil/parametres/PanelParametres.java
 ../yvstats/affichage/gui/accueil/parametres/PanelLecture.java
 ../yvstats/affichage/gui/accueil/parametres/PanelLogoTexte.java
+../yvstats/affichage/gui/accueil/classement/PanelClassement.java
+../yvstats/affichage/gui/accueil/classement/PanelLigne.java
 ../yvstats/utils/Lecteur.java
 ../yvstats/utils/Sauvegarde.java
 ../yvstats/utils/Identifiant.java
@@ -32,6 +33,6 @@
 ../yvstats/utils/Polices.java
 ../yvstats/utils/Date.java
 ../yvstats/utils/Couleur.java
-../yvstats/utils/PanelVide.java
+../yvstats/utils/PanelImage.java
 ../yvstats/utils/PanelLabel.java
 ../yvstats/utils/exception/DateFormatException.java

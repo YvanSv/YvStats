@@ -13,7 +13,6 @@ public class PanelMeilleurMusique extends PanelMeilleur {
     }
 
     public void mouseClicked(MouseEvent e) {
-        System.out.println(e.getSource());
     }
 
     public void mouseEntered(MouseEvent e) {

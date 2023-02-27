@@ -8,15 +8,21 @@ import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import yvstats.affichage.GUI;
 import yvstats.utils.Couleur;
 import yvstats.utils.PanelLabel;
 
 public class PanelHaut extends JPanel implements MouseListener {
+    private GUI gui;
+    public static int height = 0;
+    public static int width = 0;
     private PanelLabel pnlArtistes;
     private PanelLabel pnlAlbums;
     private PanelLabel pnlMusiques;
 
-    public PanelHaut() {
+    public PanelHaut(GUI gui) {
+        this.gui = gui;
+
         this.setBackground(Couleur.NOIR_16);
         this.setLayout(new GridLayout(3,3));
 
@@ -38,9 +44,14 @@ public class PanelHaut extends JPanel implements MouseListener {
         this.add(new JLabel(""));
         this.add(new JLabel(""));
         this.add(new JLabel(""));
+
+        PanelHaut.height = this.getY();
+        PanelHaut.width = this.getX();
     }
 
-    public void mouseClicked(MouseEvent e) {}
+    public void mouseClicked(MouseEvent e) {
+        if (e.getSource() == this.pnlArtistes.lbl) this.gui.setClassementArtiste();
+    }
     public void mousePressed(MouseEvent e) {}
     public void mouseReleased(MouseEvent e) {}
     public void mouseEntered(MouseEvent e) {
@@ -52,5 +63,11 @@ public class PanelHaut extends JPanel implements MouseListener {
         if (e.getSource() == this.pnlArtistes.lbl) this.pnlArtistes.lbl.setForeground(Color.WHITE);
         else if (e.getSource() == this.pnlAlbums.lbl) this.pnlAlbums.lbl.setForeground(Color.WHITE);
         else if (e.getSource() == this.pnlMusiques.lbl) this.pnlMusiques.lbl.setForeground(Color.WHITE);
+    }
+
+    public void setTaille() {
+        PanelHaut.height = this.getHeight();
+        PanelHaut.width = this.getWidth();
+        System.out.println("dimension pnl haut : " + width + " " + height);
     }
 }

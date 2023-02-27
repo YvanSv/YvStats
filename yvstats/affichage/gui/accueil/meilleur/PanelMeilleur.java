@@ -12,7 +12,7 @@ import java.io.File;
 import java.awt.event.MouseEvent;
 
 import yvstats.metier.Objet;
-import yvstats.utils.PanelVide;
+import yvstats.utils.PanelImage;
 import yvstats.utils.Polices;
 
 public abstract class PanelMeilleur extends JPanel implements MouseListener{
@@ -46,9 +46,9 @@ public abstract class PanelMeilleur extends JPanel implements MouseListener{
         this.lblNom.addMouseListener(this);
 
         this.add(this.lblTitre);
-        this.add(new PanelVide(1, 100));
+        this.add(new PanelImage(1, 100, PanelImage.VIDE));
         this.add(this.img);
-        this.add(new PanelVide(1, 10));
+        this.add(new PanelImage(1, 10, PanelImage.VIDE));
         this.add(this.lblNom);
 
         if (!type.equals("Artiste")) {
