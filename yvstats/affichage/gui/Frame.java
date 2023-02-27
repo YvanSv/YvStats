@@ -34,11 +34,6 @@ public class Frame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void setClassement(ArrayList<Objet> al) {
-        this.pnlDroit.setClassement(al);
-        this.pack();
-        this.setExtendedState(Frame.MAXIMIZED_BOTH);
-    }
 
     public void setTaille() {
         this.pnlDroit.setTaille();
@@ -46,9 +41,19 @@ public class Frame extends JFrame {
         Frame.width = this.getWidth();
     }
 
+    public void setClassement(ArrayList<Objet> al) {
+        this.pnlDroit.setClassement(al);
+        this.refresh();
+    }
+
     public void setAccueil() {
         this.pnlDroit.setAccueil();
-        this.pack();
-        this.setExtendedState(Frame.MAXIMIZED_BOTH);
+        this.refresh();
+    }
+
+    public void refresh() {
+        this.invalidate();
+        this.validate();
+        this.repaint();
     }
 }

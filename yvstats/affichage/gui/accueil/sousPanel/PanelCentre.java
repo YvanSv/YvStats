@@ -18,12 +18,15 @@ import yvstats.utils.Couleur;
 import yvstats.utils.PanelImage;
 
 public class PanelCentre extends JPanel {
+    private GUI gui;
     private PanelLigneMeilleur pnlMeilleur;
     private JPanel pnlActuel;
     private PanelImage v1;
     private PanelImage v2;
 
     public PanelCentre(GUI gui) {
+        this.gui = gui;
+
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 
         this.v1 = new PanelImage(1,230, PanelImage.VIDE);
@@ -40,7 +43,7 @@ public class PanelCentre extends JPanel {
         this.remove(this.v2);
         this.remove(this.pnlActuel);
         this.remove(this.v1);
-        this.pnlActuel = new PanelClassement(al);
+        this.pnlActuel = new PanelClassement(this.gui,al);
         this.add(this.pnlActuel);
     }
 

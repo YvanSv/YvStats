@@ -68,6 +68,5 @@ public class PanelHaut extends JPanel implements MouseListener {
     public void setTaille() {
         PanelHaut.height = this.getHeight();
         PanelHaut.width = this.getWidth();
-        System.out.println("dimension pnl haut : " + width + " " + height);
     }
 }

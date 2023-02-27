@@ -28,17 +28,10 @@ public class GUI extends Affichage{
         this.frm.setClassement(tmp);
     }
 
-    public void setAccueil() {
-        this.frm.setAccueil();
-    }
+    public void setAccueil() { this.frm.setAccueil(); }
+    public void refresh() { this.frm.refresh(); }
 
-    public Artiste getMeilleurArtiste() {
-        return this.ctrl.getMeilleurArtiste();
-    }
-    public Album getMeilleurAlbum() {
-        return this.ctrl.getMeilleurAlbum();
-    }
-    public Musique getMeilleurMusique() {
-        return this.ctrl.getMeilleurMusique();
-    }
+    public Artiste getMeilleurArtiste() { return this.ctrl.getMeilleurArtiste(); }
+    public Album getMeilleurAlbum() { return this.ctrl.getMeilleurAlbum(); }
+    public Musique getMeilleurMusique() { return this.ctrl.getMeilleurMusique(); }
 }
