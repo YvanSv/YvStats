@@ -4,10 +4,10 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.plaf.basic.BasicSliderUI;
 
 import java.awt.Component;
@@ -17,22 +17,26 @@ import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.Image;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.RenderingHints;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import java.io.File;
+
 import yvstats.affichage.GUI;
 import yvstats.affichage.gui.accueil.parametres.PanelLecture;
 import yvstats.affichage.gui.accueil.parametres.PanelParametres;
+import yvstats.metier.Musique;
 import yvstats.affichage.gui.accueil.parametres.PanelLogoTexte;
 import yvstats.utils.Couleur;
 import yvstats.utils.PanelLabel;
 import yvstats.utils.PanelImage;
 import yvstats.utils.Polices;
 
-public class PanelGauche extends JPanel implements ChangeListener,MouseListener {
-    private static final int PROG_MIN = 0, PROG_MAX = 1000, PROG_INIT = 0;
+public class PanelGauche extends JPanel implements MouseListener {
+    private static final int PROG_MIN = 0, PROG_MAX = 600, PROG_INIT = 0;
     private GUI gui;
     private PanelLogoTexte pnlRetourAccueil;
     private PanelLogoTexte pnlRechercher;
@@ -40,13 +44,26 @@ public class PanelGauche extends JPanel implements ChangeListener,MouseListener 
     private PanelLabel pnlNomArtiste;
     private JLabel imgLecture;
     private JSlider sldProgressionLecture;
+    private JMenuBar mbar;
 
     public PanelGauche(GUI gui) {
+        this.setLayout(new FlowLayout(FlowLayout.LEFT));
         this.gui = gui;
 
         this.setOpaque(true);
         this.setBackground(Couleur.NOIR_12);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        this.mbar = new JMenuBar();
+        this.mbar.setBorderPainted(false);
+        this.mbar.setOpaque(false);
+
+        JMenu menu = new JMenu("H");
+        menu.setFont(Polices.arista_pro_icons_light);
+        menu.setForeground(Color.WHITE);
+        menu.setOpaque(false);
+
+        this.mbar.add(menu);
 
         this.pnlRetourAccueil = new PanelLogoTexte("🏡"," Revenir à l'acceuil");
         this.pnlRetourAccueil.lblLogo.addMouseListener(this);
@@ -67,31 +84,35 @@ public class PanelGauche extends JPanel implements ChangeListener,MouseListener 
 
         this.sldProgressionLecture = new JSlider(JSlider.HORIZONTAL, PROG_MIN, PROG_MAX, PROG_INIT);
         this.sldProgressionLecture.setUI(new CustomSliderUI(this.sldProgressionLecture));
-        this.sldProgressionLecture.addChangeListener(this);
+        this.sldProgressionLecture.addMouseListener(this);
         this.sldProgressionLecture.setOpaque(false);
 
-        this.add(new PanelImage(368, 20, PanelImage.VIDE));
+        this.add(new PanelImage(368, 8, PanelImage.VIDE));
+        this.add(this.mbar);
         this.add(this.pnlRetourAccueil);
         this.add(this.pnlRechercher);
-        this.add(new PanelImage(1, 330, PanelImage.VIDE));
+        this.add(new PanelImage(1, 304, PanelImage.VIDE));
         this.add(this.pnlTitreSon);
         this.add(this.pnlNomArtiste);
         this.add(this.imgLecture);
         this.add(new PanelImage(1, 20, PanelImage.VIDE));
         this.add(this.sldProgressionLecture);
         this.add(new PanelImage(1, 10, PanelImage.VIDE));
-        this.add(new PanelLecture());
+        this.add(new PanelLecture(gui));
         this.add(new PanelImage(1, 30, PanelImage.VIDE));
-        this.add(new PanelParametres());
+        this.add(new PanelParametres(gui));
         this.add(new PanelImage(1, 10, PanelImage.VIDE));
     }
 
-    public void stateChanged(ChangeEvent e) {}
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.pnlRetourAccueil.lblLogo || e.getSource() == this.pnlRetourAccueil.lblTexte) this.gui.setAccueil();
     }
     public void mousePressed(MouseEvent e) {}
-    public void mouseReleased(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {
+        if (e.getSource() == this.sldProgressionLecture) {
+            this.gui.setTime(this.sldProgressionLecture.getValue());
+        }
+    }
     public void mouseEntered(MouseEvent e) {
         if (e.getSource() == this.pnlRetourAccueil.lblLogo || e.getSource() == this.pnlRetourAccueil.lblTexte) {
             this.pnlRetourAccueil.lblLogo.setForeground(Couleur.VERT);
@@ -117,6 +138,18 @@ public class PanelGauche extends JPanel implements ChangeListener,MouseListener 
         else if (e.getSource() == this.pnlNomArtiste.lbl) this.pnlNomArtiste.lbl.setForeground(Color.WHITE);
     }
 
+    public void playing(Musique m) {
+        this.pnlNomArtiste.lbl.setText(m.getArtiste().getNom());
+        this.pnlTitreSon.lbl.setText(m.getNom());
+        String link = "../ressources/img/"+m.getId()+".jpg";
+        File f = new File("../ressources/img/"+m.getId()+".jpg");
+        if (!f.exists()) link = "../ressources/img/Inconnu.png";
+        this.imgLecture.setIcon(new ImageIcon(new ImageIcon(link).getImage().getScaledInstance(330, 330, Image.SCALE_DEFAULT)));
+    }
+
+    public void majAffichageProgression(int i) {
+        this.sldProgressionLecture.setValue(i);
+    }
     private static class CustomSliderUI extends BasicSliderUI {
         private static final int TRACK_HEIGHT = 8;
         private static final int TRACK_ARC = 5;

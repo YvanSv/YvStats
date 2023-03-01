@@ -19,7 +19,6 @@ import yvstats.metier.Objet;
 public class Sauvegarde {
 
     public static void sauvegarder(Objet a) {
-        System.out.println("sauvegarde");
         String link = "../ressources/", existants = "";
         if (a instanceof Artiste) link += "artistes.data";
         if (a instanceof Album) link += "albums.data";
@@ -39,28 +38,6 @@ public class Sauvegarde {
             Sauvegarde.sauvegarderEcoutes(a.getId(), a.getEcoutes());
         } catch (Exception e) { e.printStackTrace(); }
     }
-
-    // private static void chargerObj(String s, Controleur ctrl) {
-    //     try {
-    //         System.out.println("Loading "+s+" datas... ");
-    //         Scanner sc = new Scanner(new File("../ressources/"+s+".data"));
-    //         while (sc.hasNextLine()) {
-    //             String[] ts = sc.nextLine().split(" ##### ");
-    //             if (ts.length > 1) {
-    //                 Objet a = null;
-    //                 switch (s) {
-    //                     case "artistes" : a = new Artiste(ts[1], Identifiant.creerIdentifiant(ts[0])); break;
-    //                     case "albums" : a = new Album(ts[1], ctrl.getArtisteById(Identifiant.creerIdentifiant(ts[2])), null, Identifiant.creerIdentifiant(ts[0])); break;
-    //                     case "musiques" : a = new Musique(ts[1], ctrl.getArtisteById(Identifiant.creerIdentifiant(ts[2])), Identifiant.creerIdentifiant(ts[0]));
-    //                 }
-    //                 Identifiant.nextID();
-    //                 a.setClassement(Sauvegarde.deserialiser(ts[0]));
-    //                 ctrl.nouveau(a);
-    //             } else System.out.println("inférieur à 2");
-    //         }
-    //         System.out.println("done\n");
-    //     } catch (Exception e) {System.out.println("erreur : "); e.printStackTrace();}
-    // }
 
     private static void chargerMusique(Controleur ctrl) {
         try {

@@ -32,7 +32,7 @@ public class Musique extends Objet {
     }
 
     public String getLinkToPlay() {
-        return this.id.toString()+"_"+this.nom;
+        return this.id.toString();
     }
 
     public String toString() {

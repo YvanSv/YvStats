@@ -8,6 +8,7 @@ import yvstats.metier.Album;
 import yvstats.metier.Artiste;
 import yvstats.metier.Musique;
 import yvstats.metier.Objet;
+import yvstats.utils.Identifiant;
 
 public class GUI extends Affichage{
     private Frame frm;
@@ -50,5 +51,29 @@ public class GUI extends Affichage{
     public Artiste getMeilleurArtiste() { return this.ctrl.getMeilleurArtiste(); }
     public Album getMeilleurAlbum() { return this.ctrl.getMeilleurAlbum(); }
     public Musique getMeilleurMusique() { return this.ctrl.getMeilleurMusique(); }
-    public void play(String s) { this.ctrl.play(s); }
+
+    public void play(String s) {
+        this.ctrl.play(s);
+        this.frm.playing(this.ctrl.getMusiqueById(Identifiant.creerIdentifiant(s.split("_")[0])));
+    }
+
+    public void setVolume(float vol) {
+        this.ctrl.setVolume(vol);
+    }
+
+    public void majAffichageProgression(int i) {
+        this.frm.majAffichageProgression(i);
+    }
+
+    public void pause() {
+        this.ctrl.pause();
+    }
+
+    public void unpause() {
+        this.ctrl.unpause();
+    }
+
+    public void setTime(int i) {
+        this.ctrl.setTime(i);
+    }
 }

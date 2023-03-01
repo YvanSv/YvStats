@@ -221,4 +221,6 @@ public class TUI extends Affichage {
         if (s.equals("e musique")) for (Objet o : this.ctrl.getMusiques()) al.add(o);
         return al;
     }
+
+    public void majAffichageProgression(int i) {}
 }

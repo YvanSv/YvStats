@@ -19,22 +19,26 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import yvstats.affichage.GUI;
 import yvstats.utils.Couleur;
 import yvstats.utils.PanelLabel;
 
 public class PanelParametres extends JPanel implements ChangeListener,MouseListener {
     private static final int SON_MIN = 0, SON_MAX = 100, SON_INIT = 50;
+    private GUI gui;
     private PanelLabel pnlRoue;
     private JLabel lblSon;
     private JSlider sldSon;
     private boolean muted;
 
-    public PanelParametres() {
+    public PanelParametres(GUI gui) {
         this.setOpaque(false);
 
+        this.gui = gui;
         this.muted = false;
 
         this.pnlRoue = new PanelLabel("⚙  ", new Font("serif",Font.BOLD,30));
+        // this.pnlRoue = new PanelLabel("d  ", Polices.arista_pro_icons_semibold);
         this.pnlRoue.lbl.addMouseListener(this);
 
         this.sldSon = new JSlider(JSlider.HORIZONTAL, SON_MIN, SON_MAX, SON_INIT);
@@ -57,15 +61,22 @@ public class PanelParametres extends JPanel implements ChangeListener,MouseListe
         else if (this.sldSon.getValue() < 51) this.lblSon.setText("  🔉");
         else this.lblSon.setText("  🔊");
         this.muted = false;
+        this.gui.setVolume(this.sldSon.getValue());
     }
 
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.lblSon) {
-            if (this.muted)
+            if (this.muted) {
                 if (this.sldSon.getValue() < 1) doNothing();
                 else if (this.sldSon.getValue() < 51) this.lblSon.setText("  🔉");
                 else this.lblSon.setText("  🔊");
-            else this.lblSon.setText("  🔇");
+                this.gui.setVolume(this.sldSon.getValue());
+            }
+            else {
+                this.lblSon.setText("  🔇");
+                this.gui.setVolume(0);
+            }
+                
             this.muted = !this.muted;
         }
     }

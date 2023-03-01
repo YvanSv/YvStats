@@ -22,7 +22,7 @@ import yvstats.utils.Polices;
 public class PanelLigne extends JPanel implements MouseListener {
     private GUI gui;
     private JLabel lblPlay;
-    // private PanelLabel lblNom;
+    private PanelLabel lblNom;
     private Objet o;
     private JLabel lblSupplement;
 
@@ -38,24 +38,25 @@ public class PanelLigne extends JPanel implements MouseListener {
         this.lblPlay.setForeground(Color.WHITE);
         this.lblPlay.addMouseListener(this);
 
-        // this.lblNom = new PanelLabel(o.getNom(),Polices.T27);
+        this.lblNom = new PanelLabel(o.getNom(),Polices.T27);
 
         JLabel lblIndice = new JLabel(indice+"  ");
         lblIndice.setForeground(Color.WHITE);
         lblIndice.setFont(new Font("serif",Font.BOLD,27));
 
         this.lblSupplement = new JLabel();
-        if (o instanceof Musique)
-            this.lblSupplement.setText(o.getArtiste().getNom() + " ("+o.getArtiste().getClassementLe(Date.getToday().toInt())+")");
-        else if (o instanceof Album)
-            this.lblSupplement.setText(o.getArtiste().getNom() + " ("+o.getArtiste().getClassementLe(Date.getToday().toInt())+")");
+        this.lblSupplement.setForeground(Color.WHITE);
+        this.lblSupplement.setFont(Polices.arista_pro_light_titre);
 
         this.add(new PanelImage(30, 20, PanelImage.VIDE));
         this.add(lblIndice);
         this.add(this.lblPlay);
-        // this.add(this.lblNom);
-        this.add(new PanelLabel(o.getNom(),Polices.T27));
-        // this.add(new PanelImage(30, 20, PanelImage.VIDE));
+        this.add(this.lblNom);
+        if (o instanceof Musique || o instanceof Album) {
+            this.lblSupplement.setText(o.getArtiste().getNom() + " ("+o.getArtiste().getClassementLe(Date.getToday().toInt())+")");
+            this.add(this.lblSupplement);
+        }
+        this.add(new PanelImage(30, 20, PanelImage.VIDE));
     }
     
     public void mouseClicked(MouseEvent e) {

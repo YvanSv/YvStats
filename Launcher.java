@@ -25,7 +25,7 @@ public class Launcher {
             ctrl.lancer(choix);
         }
         else {
-            
+            ctrl.lancer(Integer.parseInt(args[0]));
         }
         // Artiste yv = new Artiste("Yvan");
         // Album a1 = new Album("Album N°1", yv, null);

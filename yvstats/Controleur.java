@@ -20,7 +20,7 @@ public class Controleur {
 
     public Controleur() {
         this.metier = new Metier();
-        this.audio = new Audio();
+        // this.audio = new Audio(this);
     }
 
     public void lancer(int tuigui) {
@@ -78,8 +78,29 @@ public class Controleur {
     }
 
     public void play(String s) {
-        this.audio.interrupt();
+        if (this.audio != null) this.audio.arreter();
+        this.audio = new Audio(this);
         this.audio.setLink(s);
         this.audio.start();
+    }
+
+    public void setVolume(float vol) {
+        if (this.audio != null) this.audio.setVolume(vol);
+    }
+
+    public void majAffichageProgression(int i) {
+        this.affichage.majAffichageProgression(i);
+    }
+
+    public void pause() {
+        if (this.audio != null) this.audio.pause();
+    }
+
+    public void unpause() {
+        if (this.audio != null) this.audio.unpause();
+    }
+
+    public void setTime(int i) {
+        if (this.audio != null) this.audio.setTime(i);
     }
 }

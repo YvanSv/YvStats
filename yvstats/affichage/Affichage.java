@@ -9,4 +9,5 @@ public abstract class Affichage {
     }
 
     public abstract void lancer();
+    public abstract void majAffichageProgression(int i);
 }

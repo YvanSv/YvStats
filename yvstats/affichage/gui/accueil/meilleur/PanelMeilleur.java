@@ -58,7 +58,7 @@ public abstract class PanelMeilleur extends JPanel implements MouseListener{
                     nomArtiste = a.getArtiste().getNom();
             this.lblNomArtiste = new JLabel(nomArtiste);
             this.lblNomArtiste.setForeground(Color.WHITE);
-            this.lblNomArtiste.setFont(Polices.arista_pro_light_30);;
+            this.lblNomArtiste.setFont(Polices.arista_pro_light_30);
             this.lblNomArtiste.setAlignmentX(Component.CENTER_ALIGNMENT);
             this.lblNomArtiste.addMouseListener(this);
             this.add(this.lblNomArtiste);

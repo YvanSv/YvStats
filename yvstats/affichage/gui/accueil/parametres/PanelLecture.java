@@ -3,6 +3,7 @@ package yvstats.affichage.gui.accueil.parametres;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import yvstats.affichage.GUI;
 import yvstats.utils.Couleur;
 
 import java.awt.Font;
@@ -11,14 +12,16 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class PanelLecture extends JPanel implements MouseListener {
+        private GUI gui;
         private JLabel lblPrecedent;
         private JLabel lblPause;
         private JLabel lblProchain;
         private boolean playing;
     
-        public PanelLecture() {
+        public PanelLecture(GUI gui) {
             this.setOpaque(false);
 
+            this.gui = gui;
             this.playing = false;
     
             this.lblPrecedent = new JLabel("⏮  ");
@@ -44,8 +47,14 @@ public class PanelLecture extends JPanel implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             if (e.getSource() == this.lblPrecedent) doNothing();
             if (e.getSource() == this.lblPause) {
-                if (playing) this.lblPause.setText("  ⏵  ");
-                else this.lblPause.setText("  ⏸  ");
+                if (playing) {
+                    this.gui.pause();
+                    this.lblPause.setText("  ⏵  ");
+                }
+                else {
+                    this.gui.unpause();
+                    this.lblPause.setText("  ⏸  ");
+                }
                 playing = !playing;
             }
             if (e.getSource() == this.lblProchain) doNothing();
