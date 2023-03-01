@@ -48,7 +48,7 @@ public class Identifiant {
         return new Identifiant(this.ind0, this.c0, this.ind1, this.c1);
     }
 
-    public static Identifiant newId() {
+    public static Identifiant nextID() {
         return Identifiant.identifiant.next();
     }
 

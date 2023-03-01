@@ -11,7 +11,6 @@ import java.awt.event.MouseEvent;
 
 import yvstats.affichage.GUI;
 import yvstats.metier.Album;
-import yvstats.metier.Artiste;
 import yvstats.metier.Musique;
 import yvstats.metier.Objet;
 import yvstats.utils.Couleur;

@@ -5,11 +5,11 @@ import yvstats.utils.Identifiant;
 
 public class Musique extends Objet {
     private Album album;
-    private Artiste artiste;
 
-    public Musique(String nom, Artiste artiste, Identifiant id) {
+    public Musique(String nom, Album a, Identifiant id) {
         super(nom,id);
-        this.artiste = artiste;
+        this.album = a;
+        this.album.ajouterMusiques(this);
     }
 
     public void setAlbum(Album a) {
@@ -21,14 +21,14 @@ public class Musique extends Objet {
     }
 
     public Artiste getArtiste() {
-        return this.artiste;
+        return this.album.getArtiste();
     }
 
     public void nouvelleEcoute(Date d) {
         Ecoute e = new Ecoute(d);
         this.listeEcoutes.add(e);
         this.album.nouvelleEcoute(e);
-        this.artiste.nouvelleEcoute(e);
+        this.album.getArtiste().nouvelleEcoute(e);
     }
 
     public String getLinkToPlay() {

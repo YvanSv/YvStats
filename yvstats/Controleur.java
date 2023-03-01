@@ -43,6 +43,10 @@ public class Controleur {
         return this.metier.getArtisteByName(name);
     }
 
+    public Album getAlbumByNameAndArtiste(String name, Artiste a) {
+        return this.metier.getAlbumByNameAndArtiste(name,a);
+    }
+
     public Album getAlbumById(Identifiant id) {
         return this.metier.getAlbumById(id);
     }
@@ -74,6 +78,7 @@ public class Controleur {
     }
 
     public void play(String s) {
+        this.audio.interrupt();
         this.audio.setLink(s);
         this.audio.start();
     }

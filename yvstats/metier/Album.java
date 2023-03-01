@@ -8,16 +8,11 @@ public class Album  extends Objet {
     private Artiste artiste;
     private ArrayList<Musique> musiques;
 
-    public Album(String nom, Artiste artiste, Musique[] musiques, Identifiant id) {
+    public Album(String nom, Artiste a, Identifiant id) {
         super(nom, id);
-        this.artiste = artiste;
-        this.musiques = new ArrayList<Musique>();
-        if (musiques != null)
-            for (Musique m : musiques) {
-                this.musiques.add(m);
-                m.setAlbum(this);
-            }
+        this.artiste = a;
         this.artiste.ajouterAlbum(this);
+        this.musiques = new ArrayList<Musique>();
     }
 
     public void ajouterMusiques(Musique... ms) {

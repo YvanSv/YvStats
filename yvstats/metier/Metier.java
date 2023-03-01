@@ -50,10 +50,21 @@ public class Metier {
         for (Artiste a : this.artistes)
             if (a.getNom().equals(nom)) return a;
         
-        Artiste a = new Artiste(nom,Identifiant.newId());
+        Artiste a = new Artiste(nom,Identifiant.nextID());
         this.artistes.add(a);
-        Sauvegarde.sauvegarder(this.artistes.get(this.artistes.size()-1));
+        Sauvegarde.sauvegarder(a);
         return a;
+    }
+
+    public Album getAlbumByNameAndArtiste(String name, Artiste a) {
+        for (Album alb : this.albums)
+            if (alb.getNom().equals(name))
+                if (a.getNom().equals(alb.getArtiste().getNom())) return alb;
+        
+        Album alb = new Album(name, a, Identifiant.nextID());
+        this.albums.add(alb);
+        Sauvegarde.sauvegarder(alb);
+        return alb;
     }
 
     public ArrayList<Artiste> getArtistes() {

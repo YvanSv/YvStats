@@ -1,12 +1,12 @@
 package yvstats.metier;
 
-import  java.io.*;
-import javax.sound.sampled.*;
+// import  java.io.*;
+// import javax.sound.sampled.*;
  
  
 public class Audio extends Thread {
-    AudioInputStream audioInputStream = null;
-    SourceDataLine line;
+    // private AudioInputStream audioInputStream = null;
+    // private SourceDataLine line;
     private String link;
 
     public void setLink(String s) {

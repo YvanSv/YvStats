@@ -58,13 +58,10 @@ public class PanelCentre extends JPanel {
 
     public void setTaille() {
         int diff = Frame.height - ((int)(this.pnlActuel.getSize().getHeight()) + PanelHaut.height + 35);
-        System.out.println(PanelHaut.height + " " + this.pnlActuel.getSize() + " " + diff);
         if (diff > 1) {
             this.pnlActuel.add(new PanelImage(1, diff, PanelImage.VIDE));
-            System.out.println("added");
             this.gui.refresh();
         }
-        System.out.println(this.pnlActuel.getSize());
     }
 
     @Override

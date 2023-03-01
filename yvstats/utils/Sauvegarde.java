@@ -40,32 +40,83 @@ public class Sauvegarde {
         } catch (Exception e) { e.printStackTrace(); }
     }
 
-    private static void chargerObj(String s, Controleur ctrl) {
+    // private static void chargerObj(String s, Controleur ctrl) {
+    //     try {
+    //         System.out.println("Loading "+s+" datas... ");
+    //         Scanner sc = new Scanner(new File("../ressources/"+s+".data"));
+    //         while (sc.hasNextLine()) {
+    //             String[] ts = sc.nextLine().split(" ##### ");
+    //             if (ts.length > 1) {
+    //                 Objet a = null;
+    //                 switch (s) {
+    //                     case "artistes" : a = new Artiste(ts[1], Identifiant.creerIdentifiant(ts[0])); break;
+    //                     case "albums" : a = new Album(ts[1], ctrl.getArtisteById(Identifiant.creerIdentifiant(ts[2])), null, Identifiant.creerIdentifiant(ts[0])); break;
+    //                     case "musiques" : a = new Musique(ts[1], ctrl.getArtisteById(Identifiant.creerIdentifiant(ts[2])), Identifiant.creerIdentifiant(ts[0]));
+    //                 }
+    //                 Identifiant.nextID();
+    //                 a.setClassement(Sauvegarde.deserialiser(ts[0]));
+    //                 ctrl.nouveau(a);
+    //             } else System.out.println("inférieur à 2");
+    //         }
+    //         System.out.println("done\n");
+    //     } catch (Exception e) {System.out.println("erreur : "); e.printStackTrace();}
+    // }
+
+    private static void chargerMusique(Controleur ctrl) {
         try {
-            System.out.println("Loading "+s+" datas... ");
-            Scanner sc = new Scanner(new File("../ressources/"+s+".data"));
+            System.out.println("Loading musiques datas... ");
+            Scanner sc = new Scanner(new File("../ressources/musiques.data"));
             while (sc.hasNextLine()) {
                 String[] ts = sc.nextLine().split(" ##### ");
                 if (ts.length > 1) {
-                    Objet a = null;
-                    switch (s) {
-                        case "artistes" : a = new Artiste(ts[1], Identifiant.creerIdentifiant(ts[0])); break;
-                        case "albums" : a = new Album(ts[1], ctrl.getArtisteById(Identifiant.creerIdentifiant(ts[2])), null, Identifiant.creerIdentifiant(ts[0])); break;
-                        case "musiques" : a = new Musique(ts[1], ctrl.getArtisteById(Identifiant.creerIdentifiant(ts[2])), Identifiant.creerIdentifiant(ts[0]));
-                    }
-                    Identifiant.newId();
+                    Musique a = new Musique(ts[1], ctrl.getAlbumById(Identifiant.creerIdentifiant(ts[2])), Identifiant.creerIdentifiant(ts[0]));
+                    Identifiant.nextID();
                     a.setClassement(Sauvegarde.deserialiser(ts[0]));
                     ctrl.nouveau(a);
-                } else System.out.println("inférieur à 2");
+                }
+            }
+            System.out.println("done\n");
+        } catch (Exception e) {System.out.println("erreur : "); e.printStackTrace();}
+    }
+
+    private static void chargerArtiste(Controleur ctrl) {
+        try {
+            System.out.println("Loading artistes datas... ");
+            Scanner sc = new Scanner(new File("../ressources/artistes.data"));
+            while (sc.hasNextLine()) {
+                String[] ts = sc.nextLine().split(" ##### ");
+                if (ts.length > 1) {
+                    Artiste a = new Artiste(ts[1], Identifiant.creerIdentifiant(ts[0]));
+                    Identifiant.nextID();
+                    a.setClassement(Sauvegarde.deserialiser(ts[0]));
+                    ctrl.nouveau(a);
+                }
+            }
+            System.out.println("done\n");
+        } catch (Exception e) {System.out.println("erreur : "); e.printStackTrace();}
+    }
+
+    private static void chargerAlbum(Controleur ctrl) {
+        try {
+            System.out.println("Loading albums datas... ");
+            Scanner sc = new Scanner(new File("../ressources/albums.data"));
+            while (sc.hasNextLine()) {
+                String[] ts = sc.nextLine().split(" ##### ");
+                if (ts.length > 1) {
+                    Album a = new Album(ts[1], ctrl.getArtisteById(Identifiant.creerIdentifiant(ts[2])), Identifiant.creerIdentifiant(ts[0]));
+                    Identifiant.nextID();
+                    a.setClassement(Sauvegarde.deserialiser(ts[0]));
+                    ctrl.nouveau(a);
+                }
             }
             System.out.println("done\n");
         } catch (Exception e) {System.out.println("erreur : "); e.printStackTrace();}
     }
 
     public static void charger(Controleur ctrl) {
-        Sauvegarde.chargerObj("artistes",ctrl);
-        Sauvegarde.chargerObj("albums",ctrl);
-        Sauvegarde.chargerObj("musiques",ctrl);
+        Sauvegarde.chargerArtiste(ctrl);
+        Sauvegarde.chargerAlbum(ctrl);
+        Sauvegarde.chargerMusique(ctrl);
     }
 
     public static void serialiser(Identifiant id, HashMap<Integer,Integer> hm) {
