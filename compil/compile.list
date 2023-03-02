@@ -25,8 +25,9 @@
 ../yvstats/affichage/gui/accueil/parametres/PanelParametres.java
 ../yvstats/affichage/gui/accueil/parametres/PanelLecture.java
 ../yvstats/affichage/gui/accueil/parametres/PanelLogoTexte.java
-../yvstats/affichage/gui/accueil/classement/PanelClassement.java
-../yvstats/affichage/gui/accueil/classement/PanelLigne.java
+../yvstats/affichage/gui/classement/PanelClassement.java
+../yvstats/affichage/gui/classement/PanelLigne.java
+../yvstats/affichage/gui/rechercher/PanelRechercher.java
 ../yvstats/utils/Lecteur.java
 ../yvstats/utils/Sauvegarde.java
 ../yvstats/utils/Identifiant.java

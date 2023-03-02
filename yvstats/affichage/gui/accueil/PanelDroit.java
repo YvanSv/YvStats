@@ -34,4 +34,8 @@ public class PanelDroit extends JPanel {
     public void setAccueil() {
         this.pnlCentre.setAccueil();
     }
+
+    public void setRechercher() {
+        this.pnlCentre.setRechercher();
+    }
 }

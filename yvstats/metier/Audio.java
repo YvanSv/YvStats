@@ -30,7 +30,7 @@ public class Audio extends Thread {
             FloatControl volume = (FloatControl) this.line.getControl(FloatControl.Type.MASTER_GAIN);
             volume.setValue(20.0f * (float) Math.log10( vol / 300.0 ));
         }
-        this.vol = 20.0f * (float) Math.log10( vol / 300.0 );
+        this.vol = 20.0f * (float) Math.log10( vol / 500.0 );
     }
 
     public void pause() {

@@ -46,6 +46,7 @@ public class GUI extends Affichage{
     }
 
     public void setAccueil() { this.frm.setAccueil(); }
+    public void setRechercher() { this.frm.setRechercher(); }
     public void refresh() { this.frm.refresh(); }
 
     public Artiste getMeilleurArtiste() { return this.ctrl.getMeilleurArtiste(); }

@@ -12,8 +12,9 @@ import java.util.ArrayList;
 
 import yvstats.affichage.GUI;
 import yvstats.affichage.gui.Frame;
-import yvstats.affichage.gui.accueil.classement.PanelClassement;
+import yvstats.affichage.gui.PanelRechercher;
 import yvstats.affichage.gui.accueil.meilleur.PanelLigneMeilleur;
+import yvstats.affichage.gui.classement.PanelClassement;
 import yvstats.metier.Objet;
 import yvstats.utils.Couleur;
 import yvstats.utils.PanelImage;
@@ -54,6 +55,17 @@ public class PanelCentre extends JPanel {
         this.add(this.v1);
         this.add(this.pnlActuel);
         this.add(this.v2);
+    }
+
+    public void setRechercher() {
+        if (this.pnlActuel instanceof PanelClassement) this.remove(this.pnlActuel);
+        else if (this.pnlActuel instanceof PanelLigneMeilleur) {
+            this.remove(this.v2);
+            this.remove(this.pnlActuel);
+            this.remove(this.v1);
+        }
+        this.pnlActuel = new PanelRechercher();
+        this.add(this.pnlActuel);
     }
 
     public void setTaille() {

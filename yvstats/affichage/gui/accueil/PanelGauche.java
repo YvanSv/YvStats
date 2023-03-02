@@ -68,10 +68,12 @@ public class PanelGauche extends JPanel implements MouseListener {
         this.pnlRetourAccueil = new PanelLogoTexte("🏡"," Revenir à l'acceuil");
         this.pnlRetourAccueil.lblLogo.addMouseListener(this);
         this.pnlRetourAccueil.lblTexte.addMouseListener(this);
+        this.pnlRetourAccueil.setLayout(new FlowLayout(FlowLayout.LEFT));
 
         this.pnlRechercher = new PanelLogoTexte("🔎"," Rechercher");
         this.pnlRechercher.lblLogo.addMouseListener(this);
         this.pnlRechercher.lblTexte.addMouseListener(this);
+        this.pnlRechercher.setLayout(new FlowLayout(FlowLayout.LEFT));
 
         this.pnlTitreSon = new PanelLabel("Inconnu",Polices.T27);
         this.pnlTitreSon.lbl.addMouseListener(this);
@@ -106,6 +108,7 @@ public class PanelGauche extends JPanel implements MouseListener {
 
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.pnlRetourAccueil.lblLogo || e.getSource() == this.pnlRetourAccueil.lblTexte) this.gui.setAccueil();
+        else if (e.getSource() == this.pnlRechercher.lblLogo || e.getSource() == this.pnlRechercher.lblTexte) this.gui.setRechercher();
     }
     public void mousePressed(MouseEvent e) {}
     public void mouseReleased(MouseEvent e) {

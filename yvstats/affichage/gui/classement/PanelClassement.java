@@ -1,4 +1,4 @@
-package yvstats.affichage.gui.accueil.classement;
+package yvstats.affichage.gui.classement;
 
 import javax.swing.JPanel;
 import javax.swing.BoxLayout;

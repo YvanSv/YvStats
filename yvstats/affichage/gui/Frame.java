@@ -55,6 +55,11 @@ public class Frame extends JFrame {
         this.refresh();
     }
 
+    public void setRechercher() {
+        this.pnlDroit.setRechercher();
+        this.refresh();
+    }
+
     public void playing(Musique m) {
         this.pnlGauche.playing(m);
     }
